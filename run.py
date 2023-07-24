@@ -3,8 +3,16 @@ def measurement_type():
     Determines if the user is using meters or feet 
     """
     print("Are you using Meters or Feet ? Enter m or f")
-    user_data = input()
-    return user_data
+    user_input = input()
+    user_options = ('m', 'f')
+    try:
+        if user_input in user_options:
+            return user_input
+        else:
+            print("error")
+    except TypeError as e:
+        print(f"Invalid Data {e}, only use m or f (LowerCase)")
+            
 
 
 user_input = measurement_type()
