@@ -1,3 +1,18 @@
+def validate_measurement_type(values):
+    """
+    Validates the measurement type prefered by the user
+    """
+    if values == 'm' or 'f':
+        return True
+    try:
+        if values != 'm' or 'f':
+            raise TypeError(f"You Entered {values}. Only LowerCase m or f will be accepted")
+    except TypeError as e:
+        print(f"{e}. Please Try again")
+        return False
+
+    return True
+
 def measurement_type():
     """
     Determines if the user is using meters or feet 
@@ -6,22 +21,10 @@ def measurement_type():
         print("Are you using Meters or Feet ? Enter m or f")
         user_input = input()
     
-        if validate_data(user_input):
-            print("data is valid")
+        if validate_measurement_type(user_input):
             break
 
     return user_input
-
-
-def validate_data(values):
-    try:
-        if type(values) == float or int:
-            raise TypeError(f"You Entered {values}. Only LowerCase m or f will be accepted")
-    except TypeError as e:
-            print(f"{e} Please Try again")
-
-            return False
-    return True   
 
 
 user_input = measurement_type()
@@ -33,7 +36,6 @@ def calculate_floor_size():
     floor_size = length * width
     print(f"The floor size is {floor_size} {user_input} Squared ")
     return floor_size
-
 
 floor = calculate_floor_size()
 
