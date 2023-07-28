@@ -29,21 +29,18 @@ def validate_measurement_type(values):
     return True
 
 
-user_input = measurement_type()
-
-
 def validate_num(values):
     """
     Determines is the input is a number and raises an error if not. 
     """
     try:
-        if values.isnumeric():
-            return True
-        else:
-            raise ValueError(f"You Entered {values}. Only Numbers will be accepted \n")
+        if not float(values):
+            raise ValueError(f"You Entered {values}. \n")
     except ValueError as e:
-        print(f"{e}. Please Try Again")
+        print(f"{e}. Please Enter a Number")
         return False
+        
+    return True
 
 def calculate_length():
     """
@@ -57,9 +54,6 @@ def calculate_length():
     return length
 
 
-floor_length = calculate_length()
-
-
 def calculate_width():
     """
     Take the input from the user for the Width
@@ -70,9 +64,6 @@ def calculate_width():
         if validate_num(width):
             break
     return width
-
-
-floor_width = calculate_width()
 
   
 def box_coverage():
@@ -87,33 +78,36 @@ def box_coverage():
     return box_size
 
 
-box_size = box_coverage()
-floor_size = (float(floor_length) * float(floor_width))
-
 def boxes_needed():
     if user_input == 'm':
         boxes = (float(floor_size) / float(box_size))
     elif user_input == 'f':
         boxes = ((float(floor_size) /10.764) / float(box_size))
-        
-    return boxes
-
     print(f"you need {boxes} boxes")
 
+    return boxes
 
-boxes_needed = boxes_needed()
+    
 
-def cost_of_room():
+
+def cost_per_box():
     while True:
-        cost = input("Enter cost per box (numbers only leave out the € sign)\n")
+        cost_of_box = input("Enter cost per box (numbers only leave out the € sign)\n")
 
-        if validate_num(cost):
+        if validate_num(cost_of_box):
             break
-    return cost
+    return cost_of_box
 
-cost = cost_of_room()
 
-total_cost = (float(cost) * float(boxes_needed))
+user_input = measurement_type()
+floor_length = calculate_length()
+floor_width = calculate_width()
+box_size = box_coverage()
+
+floor_size = (float(floor_length) * float(floor_width))
+boxes_needed = boxes_needed()
+cost_of_box = cost_per_box()
+total_cost = (float(cost_of_box) * float(boxes_needed))
 print(f"The total cost will be €{(total_cost)}")
 
 
