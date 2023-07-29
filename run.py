@@ -1,11 +1,18 @@
 import math
 
+def welcome():
+    """
+    Prints Welcome Message and explains how to use.
+    """
+    print("Welcome to Sean's Floor measuring tool\n")
+
 
 def measurement_type():
     """
     Determines if the user is using meters or feet 
     """
     while True:
+
         print("Are you using Meters or Feet ? Enter m or f \n")
         user_input = input()
     
@@ -74,17 +81,25 @@ def box_coverage():
     Take the input from the user to determine the coverage in each box.
     """
     while True:
-        box_size = input("Enter the SQM coverage of the box (in numbers only)\n")
+        box_size = input("Enter the Square Meter coverage of the box (in numbers only)\n")
 
         if validate_num(box_size):
             break
     return box_size
 
 
-def boxes_needed():
+def calc_boxes_needed():
+    """
+    Calculates the amount of boxes needed and converts from feet
+    to meters if the user chooses feet. 
+    """
+    
     if user_input == 'm':
+        #calculates the size in meters
         boxes = (float(floor_size) / float(box_size))
+
     elif user_input == 'f':
+        #converts from feet to meters
         boxes = ((float(floor_size) /10.764) / float(box_size))
     print(f"you need {math.ceil(boxes)} boxes")
 
@@ -92,6 +107,9 @@ def boxes_needed():
 
 
 def cost_per_box():
+    """
+    Takes the input from the user for the price of each box.
+    """
     while True:
         cost_of_box = input("Enter cost per box (numbers only)\n")
 
@@ -99,14 +117,15 @@ def cost_per_box():
             break
     return cost_of_box
 
-
+ 
+welcome()
 user_input = measurement_type()
 floor_length = calculate_length()
 floor_width = calculate_width()
 box_size = box_coverage()
-
 floor_size = (float(floor_length) * float(floor_width))
-boxes_needed = boxes_needed()
+boxes_needed = calc_boxes_needed()
 cost_of_box = cost_per_box()
 total_cost = (float(cost_of_box) * float(boxes_needed))
 print(f"The total cost will be €{(total_cost)}")
+
