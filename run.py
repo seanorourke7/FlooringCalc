@@ -118,14 +118,6 @@ def cost_per_box():
     return cost_of_box
 
 
-def offer_input():
-    """
-    Takes input to determine if there is an offer on
-    """
-    offer = input("Is there currently an offer on ?\n Enter 1 to select '3 for 2' or Enter 2 for '4 for 3'")
-    
-
- 
 welcome()
 user_input = measurement_type()
 floor_length = calculate_length()
@@ -136,4 +128,55 @@ boxes_needed = calc_boxes_needed()
 cost_of_box = cost_per_box()
 total_cost = (float(cost_of_box) * float(boxes_needed))
 print(f"The total cost will be €{(total_cost)}")
+
+
+def offer_input():
+    """
+    Takes input to determine if there is an offer on
+    """
+    while True:
+        offer = input("Is there currently an offer on ?\n Enter 1 to select '3 for 2' or Enter 2 for '4 for 3'\n")
+    
+        if validate_offer_type(offer):
+            break
+    return offer
+
+
+def validate_offer_type(values):
+    """
+    Validates the measurement type prefered by the user
+    """
+    if values == '1' or values == '2':
+        return True
+    try:
+        if values != ('1' or '2'):
+            raise TypeError(f"You Entered {values}. Only 1 or 2 will be accepted \n")
+    except TypeError as e:
+        print(f"{e}. Please Try again")
+        return False
+
+    return True
+
+
+def calc_3_for_2():
+    """
+    Calculates the cost with a 3 for 2 offer.
+    """  
+    if offer == '1':
+        offer_price = ((boxes_needed / 3) * 2) * float(cost_of_box)
+        print(f"the price with 3 for 2 applied is €{math.ceil(offer_price)}\n")
+
+def calc_4_for_3():
+
+    if offer == '2':
+        offer_price = ((boxes_needed / 4) * 3) * float(cost_of_box)
+        print(f"the price with 4 for 3 applied is €{math.ceil(offer_price)}\n")
+        
+
+
+offer = offer_input()
+calc_3_for_2()
+calc_4_for_3()
+
+
 
