@@ -1,3 +1,5 @@
+import math
+
 
 def measurement_type():
     """
@@ -39,8 +41,9 @@ def validate_num(values):
     except ValueError as e:
         print(f"{e}. Please Enter a Number")
         return False
-        
+
     return True
+
 
 def calculate_length():
     """
@@ -83,16 +86,14 @@ def boxes_needed():
         boxes = (float(floor_size) / float(box_size))
     elif user_input == 'f':
         boxes = ((float(floor_size) /10.764) / float(box_size))
-    print(f"you need {boxes} boxes")
+    print(f"you need {math.ceil(boxes)} boxes")
 
-    return boxes
-
-    
+    return math.ceil(boxes)
 
 
 def cost_per_box():
     while True:
-        cost_of_box = input("Enter cost per box (numbers only leave out the € sign)\n")
+        cost_of_box = input("Enter cost per box (numbers only)\n")
 
         if validate_num(cost_of_box):
             break
@@ -109,6 +110,3 @@ boxes_needed = boxes_needed()
 cost_of_box = cost_per_box()
 total_cost = (float(cost_of_box) * float(boxes_needed))
 print(f"The total cost will be €{(total_cost)}")
-
-
-
