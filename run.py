@@ -5,7 +5,8 @@ def welcome():
     Prints Welcome Message and explains how to use.
     """
     print("Welcome to Sean's Floor measuring tool\n")
-
+    print("Please follow the input instructions carefully")
+    
 
 def measurement_type():
     """
@@ -13,6 +14,7 @@ def measurement_type():
     """
     while True:
 
+        print()
         print("Are you using Meters or Feet ? Enter m or f \n")
         user_input = input()
     
@@ -118,6 +120,11 @@ def cost_per_box():
     return cost_of_box
 
 
+def calc_total_cost():
+    total_cost = (float(cost_of_box) * float(boxes_needed))
+    print(f"The total cost will be €{(total_cost)}")
+
+
 welcome()
 user_input = measurement_type()
 floor_length = calculate_length()
@@ -126,16 +133,14 @@ box_size = box_coverage()
 floor_size = (float(floor_length) * float(floor_width))
 boxes_needed = calc_boxes_needed()
 cost_of_box = cost_per_box()
-total_cost = (float(cost_of_box) * float(boxes_needed))
-print(f"The total cost will be €{(total_cost)}")
-
+calc_total_cost()
 
 def offer_input():
     """
     Takes input to determine if there is an offer on
     """
     while True:
-        offer = input("Is there currently an offer on ?\n Enter 1 to select '3 for 2' or Enter 2 for '4 for 3'\n")
+        offer = input("Is there currently an offer on ?\n Enter 1 to select '3 for 2' or Enter 2 for '4 for 3'\n Or 3 to exit\n")
     
         if validate_offer_type(offer):
             break
@@ -146,10 +151,10 @@ def validate_offer_type(values):
     """
     Validates the measurement type prefered by the user
     """
-    if values == '1' or values == '2':
+    if values == '1' or values == '2' or values == '3':
         return True
     try:
-        if values != ('1' or '2'):
+        if values != ('1' or '2' or '3'):
             raise TypeError(f"You Entered {values}. Only 1 or 2 will be accepted \n")
     except TypeError as e:
         print(f"{e}. Please Try again")
@@ -171,7 +176,11 @@ def calc_4_for_3():
     if offer == '2':
         offer_price = ((boxes_needed / 4) * 3) * float(cost_of_box)
         print(f"the price with 4 for 3 applied is €{math.ceil(offer_price)}\n")
-        
+
+
+def start_again():
+    if offer == '3':
+        main()
 
 
 offer = offer_input()
