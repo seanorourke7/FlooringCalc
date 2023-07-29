@@ -117,6 +117,14 @@ def cost_per_box():
             break
     return cost_of_box
 
+
+def offer_input():
+    """
+    Takes input to determine if there is an offer on
+    """
+    offer = input("Is there currently an offer on ?\n Enter 1 to select '3 for 2' or Enter 2 for '4 for 3'")
+    
+
  
 welcome()
 user_input = measurement_type()
