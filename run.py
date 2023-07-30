@@ -122,6 +122,7 @@ def cost_per_box():
 
 def calc_total_cost():
     total_cost = (float(cost_of_box) * float(boxes_needed))
+    print('')
     print(f"The total cost will be €{(total_cost)}")
 
 
@@ -140,7 +141,9 @@ def offer_input():
     Takes input to determine if there is an offer on
     """
     while True:
-        offer = input("Is there currently an offer on ?\n Enter 1 to select '3 for 2' or Enter 2 for '4 for 3'\n Or 3 to exit\n")
+        print('')
+        print("Is there currently an offer on ?\n")
+        offer = input("Enter 1 to select '3 for 2' or Enter 2 for '4 for 3' Or 3 to exit\n")
     
         if validate_offer_type(offer):
             break
@@ -149,13 +152,13 @@ def offer_input():
 
 def validate_offer_type(values):
     """
-    Validates the measurement type prefered by the user
+    Validates the offer type prefered by the user
     """
     if values == '1' or values == '2' or values == '3':
         return True
     try:
         if values != ('1' or '2' or '3'):
-            raise TypeError(f"You Entered {values}. Only 1 or 2 will be accepted \n")
+            raise TypeError(f"You Entered {values}. Only 1, 2 or 3 will be accepted \n")
     except TypeError as e:
         print(f"{e}. Please Try again")
         return False
@@ -168,19 +171,19 @@ def calc_3_for_2():
     Calculates the cost with a 3 for 2 offer.
     """  
     if offer == '1':
-        offer_price = ((boxes_needed / 3) * 2) * float(cost_of_box)
+        remainder = boxes_needed % 3
+        offer_price = ((math.floor((boxes_needed / 3)) * 2) + remainder) * float(cost_of_box)
         print(f"the price with 3 for 2 applied is €{math.ceil(offer_price)}\n")
 
+
 def calc_4_for_3():
-
+    """
+    Calculates the cost with a 4 for 3 offer.
+    """  
     if offer == '2':
-        offer_price = ((boxes_needed / 4) * 3) * float(cost_of_box)
+        remainder = boxes_needed % 4
+        offer_price = ((math.floor((boxes_needed / 4)) * 3) + remainder) * float(cost_of_box)
         print(f"the price with 4 for 3 applied is €{math.ceil(offer_price)}\n")
-
-
-def start_again():
-    if offer == '3':
-        main()
 
 
 offer = offer_input()
