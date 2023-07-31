@@ -71,10 +71,10 @@ def calculate_width():
 
 def box_coverage():
     """
-    Take the input from the user to determine the square meter coverage in each box.
+    Take the input from the user to determine the SQM coverage in each box.
     """
     while True:
-        box_size = input("Enter the Square Meter coverage of the box. (numbers only)\n")
+        box_size = input("Enter the Square Meter coverage of the box.\n")
 
         if validate_num(box_size):
             break
@@ -92,7 +92,7 @@ def calc_boxes_needed():
 
     elif user_input == 'f':
         boxes = ((float(floor_size) / 10.764) / float(box_size))
-    print(f"you need {math.ceil(boxes)} boxes.")
+    print(f"You will need {math.ceil(boxes)} boxes.")
 
     return math.ceil(boxes)
 
@@ -125,7 +125,7 @@ def offer_input():
     while True:
         print('')
         print("Is there currently an offer on ?\n")
-        print("Enter 1 to select '3 for 2'.\n") 
+        print("Enter 1 to select '3 for 2'.\n")
         print("Enter 2 to select '4 for 3'.\n")
         offer = input("Or Enter 3 to exit.\n")
 
@@ -152,9 +152,9 @@ def validate_offer_type(values):
 
 def calc_3_for_2():
     """
-    Calculates the cost with a 3 for 2 offer. By dividing by 3 and multiplying 
-    by 2 and allowing for the remainder to be added as well
-    to avoid fractions of boxes.
+    Calculates the cost with a 3 for 2 offer. By dividing by 3 and multiplying
+    by 2. If their is a remainder this is removed form the initial calculation
+    and added later to give a true cost of each box and avoid fractions.
     """
     if offer == '1':
         r = boxes % 3
@@ -164,9 +164,9 @@ def calc_3_for_2():
 
 def calc_4_for_3():
     """
-    Calculates the cost with a 4 for 3 offer.By dividing by 4 and multiplying 
-    by 3 and allowing for the remainder to be added as well
-    to avoid fractions of boxes.
+    Calculates the cost with a 4 for 3 offer. By dividing by 4 and multiplying
+    by 3. If their is a remainder this is removed form the initial calculation
+    and added later to give a true cost of each box and avoid fractions.
     """
     if offer == '2':
         r = boxes % 4

@@ -1,32 +1,24 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Flooring Measuring Tool
 
-Welcome,
+This is a measuring tool designed to help clients easily determine how many boxes of flooring they will need for a job and how much it will cost. 
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **March 14, 2023**
+I built it to demonstrate my abilities in Python and as a tool I can use in the real world. 
 
-## Reminders
+The tool takes several inputs from the user and calculates the size of the area being worked and how many boxes will be needed to cover said area. It also calculates any discount that may be currently available. In this instance it will be either 3 for 2 or 4 for 3. 
 
-- Your code must be placed in the `run.py` file
-- Your dependencies must be placed in the `requirements.txt` file
-- Do not edit any of the other files or your code may not deploy properly
+https://flooringcalculator-4a8f9f1ad4d5.herokuapp.com/
 
-## Creating the Heroku app
-
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
-
-1. `heroku/python`
-2. `heroku/nodejs`
-
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
-
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
-
-Connect your GitHub repository and deploy as normal.
-
-## Constraints
-
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
+![screenshot across differant device sizes](assets/images/screenshotFlooringCalc.png)
 
 ---
 
-Happy coding!
+## How To Use
+
+The first input asked is the measurment type being used. Feet or Meters. 
+
+Once the measurement is determined the user is then asked for the length and width of the space to be covered. 
+
+The next input determines the coverage in each box. This allows for the varied options of flooring as different styles will have a different square meter coverage per box. 
+
+
+
