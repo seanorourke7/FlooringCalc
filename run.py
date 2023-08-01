@@ -177,6 +177,7 @@ def calc_4_for_3():
 print("Welcome to Sean's Floor measuring tool.\n")
 print("Please follow the input instructions carefully.\n")
 
+
 user_input = measurement_type()
 floor_length = calculate_length()
 floor_width = calculate_width()
