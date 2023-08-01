@@ -18,7 +18,7 @@ https://flooringcalculator-4a8f9f1ad4d5.herokuapp.com/
 
   
 
-![screenshot across differant device sizes](assets/images/screenshotFlooringCalc.png)
+![screenshot across differant device sizes](images/screenshotFlooringCalc.png)
 
   
 
@@ -104,9 +104,9 @@ When asking the user for numerical inputs for length, width , price etc. The pro
 
   
 
-![screenshot of error handling](assets/images/ErrorMT.png)
+![screenshot of error handling](images/ErrorMT.png)
 
-![screenshot of error handling](assets/images/ErrorNum.png)
+![screenshot of error handling](images/ErrorNum.png)
 
   
 
@@ -123,7 +123,7 @@ I have tested this project by doing the following.
  3. Tested in the local terminal and the code institute heroku terminal.
 
 
-### Bugs
+## Bugs
 
   
 
