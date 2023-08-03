@@ -118,8 +118,8 @@ def calc_total_cost(cost_of_box, boxes):
     Calculates the Total cost before any offers are applied
     """
     total_cost = (float(cost_of_box) * float(boxes))
-    print('')
     print(f"The total cost will be €{(total_cost)}.\n")
+    return total_cost
 
 
 def offer_input():
@@ -131,7 +131,8 @@ def offer_input():
         print("Is there currently an offer on ?\n")
         print("Enter 1 to select '3 for 2'.\n")
         print("Enter 2 to select '4 for 3'.\n")
-        offer = input("Or Enter 3 to start again.\n")
+        print("Enter 3 for a percentage reduction\n")
+        offer = input("Or Enter 4 to start again.\n")
 
         if validate_offer_type(offer):
             break
@@ -142,13 +143,13 @@ def validate_offer_type(values):
     """
     Validates the input from the user to determine the offer type
     """
-    if values == '1' or values == '2' or values == '3':
+    if values == '1' or values == '2' or values == '3' or values == '4':
         return True
     try:
-        if values != ('1' or '2' or '3'):
+        if values != ('1' or '2' or '3' or '4'):
             raise TypeError(f"You Entered {values}. \n")
     except TypeError as e:
-        print(f"{e}. Only 1, 2 or 3 will be accepted. Please Try again.\n")
+        print(f"{e}. Only 1, 2, 3 or 4 will be accepted. Please Try again.\n")
         return False
 
     return True
@@ -178,10 +179,22 @@ def calc_4_for_3(offer, boxes, cost_of_box):
         print(f"The price with '4 for 3' is €{math.ceil(offer_price)}.\n")
 
 
-def start_again(offer):
+def get_percentage(offer):
     if offer == '3':
+        perc = input("Please enter the percentage amount (in numbers only)\n")
+        return perc
+
+
+def cal_perc_off(total_cost, perc):
+    percentage_cost = total_cost - ((float(total_cost) / 100) * float(perc))
+    print(f"The total with the discount applied is {percentage_cost}\n")
+    return percentage_cost
+
+
+def start_again(offer):
+    if offer == '4':
         main()
-        
+
 
 print("Welcome to Sean's Floor measuring tool.\n")
 print("Please follow the input instructions carefully.\n")
@@ -195,11 +208,12 @@ def main():
     floor_size = (float(floor_length) * float(floor_width))
     boxes = calc_boxes_needed(user_input, floor_size, box_size)
     cost_of_box = cost_per_box()
-    calc_total_cost(cost_of_box, boxes)
+    total_cost = calc_total_cost(cost_of_box, boxes)
     offer = offer_input()
     calc_3_for_2(offer, boxes, cost_of_box)
     calc_4_for_3(offer, boxes, cost_of_box)
-    start_again(offer)
+    perc = get_percentage(offer)
+    cal_perc_off(total_cost, perc)
 
 
 main()
