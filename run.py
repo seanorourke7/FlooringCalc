@@ -1,4 +1,8 @@
 import math
+"""
+Use for calculating measurements. 
+"""
+import os
 
 
 def measurement_type():
@@ -81,7 +85,7 @@ def box_coverage():
     return box_size
 
 
-def calc_boxes_needed():
+def calc_boxes_needed(user_input, floor_size, box_size):
     """
     Calculates the amount of boxes needed and converts from feet
     to meters if the user chooses feet.
@@ -109,7 +113,7 @@ def cost_per_box():
     return cost_of_box
 
 
-def calc_total_cost():
+def calc_total_cost(cost_of_box, boxes):
     """
     Calculates the Total cost before any offers are applied
     """
@@ -127,7 +131,7 @@ def offer_input():
         print("Is there currently an offer on ?\n")
         print("Enter 1 to select '3 for 2'.\n")
         print("Enter 2 to select '4 for 3'.\n")
-        offer = input("Or Enter 3 to exit.\n")
+        offer = input("Or Enter 3 to start again.\n")
 
         if validate_offer_type(offer):
             break
@@ -150,7 +154,7 @@ def validate_offer_type(values):
     return True
 
 
-def calc_3_for_2():
+def calc_3_for_2(offer, boxes, cost_of_box):
     """
     Calculates the cost with a 3 for 2 offer. By dividing by 3 and multiplying
     by 2. If their is a remainder this is removed form the initial calculation
@@ -162,7 +166,7 @@ def calc_3_for_2():
         print(f"The price with '3 for 2' is €{math.ceil(offer_price)}.\n")
 
 
-def calc_4_for_3():
+def calc_4_for_3(offer, boxes, cost_of_box):
     """
     Calculates the cost with a 4 for 3 offer. By dividing by 4 and multiplying
     by 3. If their is a remainder this is removed form the initial calculation
@@ -174,18 +178,28 @@ def calc_4_for_3():
         print(f"The price with '4 for 3' is €{math.ceil(offer_price)}.\n")
 
 
+def start_again(offer):
+    if offer == '3':
+        main()
+        
+
 print("Welcome to Sean's Floor measuring tool.\n")
 print("Please follow the input instructions carefully.\n")
 
 
-user_input = measurement_type()
-floor_length = calculate_length()
-floor_width = calculate_width()
-box_size = box_coverage()
-floor_size = (float(floor_length) * float(floor_width))
-boxes = calc_boxes_needed()
-cost_of_box = cost_per_box()
-calc_total_cost()
-offer = offer_input()
-calc_3_for_2()
-calc_4_for_3()
+def main():
+    user_input = measurement_type()
+    floor_length = calculate_length()
+    floor_width = calculate_width()
+    box_size = box_coverage()
+    floor_size = (float(floor_length) * float(floor_width))
+    boxes = calc_boxes_needed(user_input, floor_size, box_size)
+    cost_of_box = cost_per_box()
+    calc_total_cost(cost_of_box, boxes)
+    offer = offer_input()
+    calc_3_for_2(offer, boxes, cost_of_box)
+    calc_4_for_3(offer, boxes, cost_of_box)
+    start_again(offer)
+
+
+main()
