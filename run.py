@@ -181,7 +181,10 @@ def calc_4_for_3(offer, boxes, cost_of_box):
 
 def get_percentage(offer):
     if offer == '3':
-        perc = input("Please enter the percentage amount (in numbers only)\n")
+        while True:
+            perc = input("Please enter the percentage amount (in numbers only)\n")
+            if validate_num(perc):
+                break
         return perc
 
 
