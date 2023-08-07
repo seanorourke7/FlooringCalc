@@ -41,7 +41,7 @@ def validate_num(values):
     """
     try:
         float(values)
-        if float(values) <= 0 :
+        if float(values) <= 0:
             raise ValueError(f"You entered {values} \n")
     except ValueError as e:
         print(f"{e}Please Enter a Number\n")
@@ -130,8 +130,7 @@ def offer_input():
         print("Is there currently an offer on ?\n")
         print("Enter 1 to select '3 for 2'.\n")
         print("Enter 2 to select '4 for 3'.\n")
-        print("Enter 3 for a percentage reduction\n")
-        offer = input("Or Enter 4 to start again.\n")
+        offer = input("Enter 3 for a percentage reduction\n")
 
         if validate_offer_type(offer):
             break
@@ -142,13 +141,13 @@ def validate_offer_type(values):
     """
     Validates the input from the user to determine the offer type
     """
-    if values == '1' or values == '2' or values == '3' or values == '4':
+    if values == '1' or values == '2' or values == '3':
         return True
     try:
-        if values != ('1' or '2' or '3' or '4'):
+        if values != ('1' or '2' or '3'):
             raise TypeError(f"You Entered {values}. \n")
     except TypeError as e:
-        print(f"{e}. Only 1, 2, 3 or 4 will be accepted. Please Try again.\n")
+        print(f"{e}. Only 1, 2 or 3 will be accepted. Please Try again.\n")
         return False
 
     return True
@@ -164,7 +163,7 @@ def calc_3_for_2(offer, boxes, cost_of_box):
         r = boxes % 3
         offer_price = ((math.floor((boxes / 3)) * 2) + r) * float(cost_of_box)
         print(f"The price with '3 for 2' is €{math.ceil(offer_price)}.\n")
-        return offer_price
+        main()
 
 
 def calc_4_for_3(offer, boxes, cost_of_box):
@@ -177,22 +176,22 @@ def calc_4_for_3(offer, boxes, cost_of_box):
         r = boxes % 4
         offer_price = ((math.floor((boxes / 4)) * 3) + r) * float(cost_of_box)
         print(f"The price with '4 for 3' is €{math.ceil(offer_price)}.\n")
-        return offer_price
-
+        main()
+        
 
 def get_percentage(offer):
     if offer == '3':
         while True:
-            perc = input("Please enter the percentage amount (in numbers only)\n")
+            perc = input("Please enter the percentage amount (numbers only)\n")
             if validate_num(perc):
                 break
         return perc
 
 
 def cal_perc_off(total_cost, perc):
-    percentage_cost = (total_cost - ((total_cost / 100) * perc))
-    print(f"The total with the discount applied is €{math.ceil(percentage_cost)}\n")
-    return percentage_cost
+    perc_cost = (total_cost - ((float(total_cost) / 100) * float(perc)))
+    print(f"The total with the discount applied is €{math.ceil(perc_cost)}\n")
+    main()
 
 
 def main():
@@ -208,9 +207,13 @@ def main():
     calc_3_for_2(offer, boxes, cost_of_box)
     calc_4_for_3(offer, boxes, cost_of_box)
     perc = get_percentage(offer)
-    percentage_cost = cal_perc_off(total_cost, perc)
+    cal_perc_off(total_cost, perc)
+    start_again()
 
 
 print("Welcome to Sean's Floor measuring tool.\n")
 print("Please follow the input instructions carefully.\n")
-main()
+
+
+if __name__ == "__main__":
+    main()
