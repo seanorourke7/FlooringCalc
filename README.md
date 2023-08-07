@@ -10,7 +10,7 @@ I built it to demonstrate my abilities in Python and as a tool I can use in the 
 
   
 
-The tool takes several inputs from the user and calculates the size of the area being worked and how many boxes will be needed to cover said area. It also calculates any discount that may be currently available. In this instance it will be either 3 for 2 or 4 for 3.
+The tool takes several inputs from the user and calculates the size of the area being worked and how many boxes will be needed to cover said area. It also calculates any discount that may be currently available. In this instance it will be either 3 for 2,  4 for 3 or a percentage off offer.
 
   
 
@@ -54,13 +54,14 @@ This information is then calculated and the number of boxes required and the ful
 
   
 
-At the point the user can start again or select if their is an offer currently active. The offers usually running are 3 for 2 or 4 for 3.
+At the point the user can start again or select if their is an offer currently active. The offers usually running are 3 for 2, 4 for 3 or a percentage off.
 
   
 
-If the user selects 3 for 2 or the 4 for 3 the program will calculate the discount and return the new total.
+If the user selects '3 for 2' or '4 for 3' the program will calculate the discount and return the new total. If the user selects the percentage off they are then asked to enter the percentage amount. This is then used to calculate the dicscount with the percentage off and returns it to the user. 
 
-  
+![Flow chart plotting the options and steps through the program](images/FlowChartFC.png)
+
 
 ## Features
 
@@ -108,7 +109,24 @@ When asking the user for numerical inputs for length, width , price etc. The pro
 
 ![screenshot of error handling](images/ErrorNum.png)
 
-  
+
+
+**User Stories.**  
+
+
+This app is designed for use predominantly by sales personel. 
+In big box Home and DIY stores there are usually specialists in each area of the store. For example in Woodies DIY there is a paint specialist, a DIY specialist, a Horticulturist, a building/flooring specialist etc. These people are highly trained/experienced in their specific area and handle most queries and sales. However when they are not available the other colleagues have to step in and help out and this is ok for the most part but one of the areas people find most difficult is calculating flooring. 
+
+How many boxes the customer will need and how much it will cost based on the current offer?. Are they using feet or meters?, Will I need to convert the measurements ? and so on. This leads to people avoiding these interactions and waiting for the return of the 'Specialist'. This means lost sales and unhappy customers. 
+
+With this tool it is now simple to calculate exactly what the customer needs without any need for conversions or calculators.
+
+This takes away the uncertainty and fear of the sales person and instead allows them to concentrate on talking to the customer and selling. 
+
+
+It's also just as useful for customers as they can now 'self serve' and get the correct pricing without any concerns for conversions and calculations. 
+
+
 
 ## Testing
 
@@ -118,19 +136,48 @@ I have tested this project by doing the following.
 
   
 
- 1. Passed all the code through pep8 python linter.
- 2. Tested wrong inputs. Non numbers where numbers are expected and numbers, symbols empty space, where strings are expeceted.
- 3. Tested in the local terminal and the code institute heroku terminal.
+    Passed all the code through pep8 python linter.
+    Tested in the local terminal and the code institute heroku terminal.
+
+Input testing.
+
+validate_measurement_type(values): 
+
+I have tried numerous inputs including blank space, numbers, strings, symbols and capitalization of the inputs M and F.  
+
+Expected output is an error advising of incorrect input.
+
+Actual output was as expected. 
+
+validate_num(values):
+
+I have tried entering letters, strings, empty space, symbols and numbers with multiple decimel points. 
+
+Expected output is an error advising of incorrect input.
+
+Actual output was as expected.
+
+validate_offer_type(values):
+
+I have tried entering letters, strings, empty space, symbols and numbers not included in the expected inputs.
+
+Expected output is an error advising of incorrect input.
+
+Actual output was as expected.
+
+
+
+
 
 
 ## Bugs
 
   
+I had some issues with validate_num(values):
 
-Initially the error on the number input validator function was not displaying the text I had written and was displaying the default error instead. 
-I realized the way I was determining if the input was a number was wrong. I was just using the .isnumeric method.
-So I changed the code to use the replace method with the .isnumeric and this fixed the issue. 
-if values.replace(".", "").isnumeric(): 
+I had written the function using replace and isnumeric methods. This worked until I input a number with more than one decimel point. 1.2.3 for example passed and was accepted as a number which then threw an error as it couldn't be converted from string to a float.   
+
+I re-wrote the code to use float(values) and now it passes only genuine floats or int
 
 There were minor bugs in the code when ran through the python linter. Some empty space and lines too long.
 

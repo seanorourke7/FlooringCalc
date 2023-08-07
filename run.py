@@ -39,12 +39,10 @@ def validate_num(values):
     """
     Determines is the input is a number and raises an error if not.
     """
-    if values.replace(".", "").isnumeric():
-        return True
     try:
-        if values is not float:
-            raise ValueError(f"You Entered {values}. \n")
+        float(values)
     except ValueError as e:
+        e = (f"You entered {values} \n")
         print(f"{e}Please Enter a Number\n")
         return False
 
@@ -118,8 +116,8 @@ def calc_total_cost(cost_of_box, boxes):
     Calculates the Total cost before any offers are applied
     """
     total_cost = (float(cost_of_box) * float(boxes))
-    print(f"The total cost will be €{(total_cost)}.\n")
-    return total_cost
+    print(f"The total cost will be €{total_cost}.\n")
+    return float(total_cost)
 
 
 def offer_input():
@@ -165,6 +163,7 @@ def calc_3_for_2(offer, boxes, cost_of_box):
         r = boxes % 3
         offer_price = ((math.floor((boxes / 3)) * 2) + r) * float(cost_of_box)
         print(f"The price with '3 for 2' is €{math.ceil(offer_price)}.\n")
+        return offer_price
 
 
 def calc_4_for_3(offer, boxes, cost_of_box):
@@ -177,6 +176,7 @@ def calc_4_for_3(offer, boxes, cost_of_box):
         r = boxes % 4
         offer_price = ((math.floor((boxes / 4)) * 3) + r) * float(cost_of_box)
         print(f"The price with '4 for 3' is €{math.ceil(offer_price)}.\n")
+        return offer_price
 
 
 def get_percentage(offer):
@@ -189,18 +189,9 @@ def get_percentage(offer):
 
 
 def cal_perc_off(total_cost, perc):
-    percentage_cost = total_cost - ((float(total_cost) / 100) * float(perc))
-    print(f"The total with the discount applied is {percentage_cost}\n")
+    percentage_cost = (total_cost - ((total_cost / 100) * perc))
+    print(f"The total with the discount applied is €{math.ceil(percentage_cost)}\n")
     return percentage_cost
-
-
-def start_again(offer):
-    if offer == '4':
-        main()
-
-
-print("Welcome to Sean's Floor measuring tool.\n")
-print("Please follow the input instructions carefully.\n")
 
 
 def main():
@@ -216,7 +207,9 @@ def main():
     calc_3_for_2(offer, boxes, cost_of_box)
     calc_4_for_3(offer, boxes, cost_of_box)
     perc = get_percentage(offer)
-    cal_perc_off(total_cost, perc)
+    percentage_cost = cal_perc_off(total_cost, perc)
 
 
+print("Welcome to Sean's Floor measuring tool.\n")
+print("Please follow the input instructions carefully.\n")
 main()
