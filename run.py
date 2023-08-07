@@ -123,7 +123,7 @@ def calc_total_cost(cost_of_box, boxes):
     Calculates the Total cost before any offers are applied
     """
     total_cost = (float(cost_of_box) * float(boxes))
-    print(Fore.GREEN + f"The total cost will be €{total_cost}.\n")
+    print(Fore.GREEN + f"The total cost will be €{math.ceil(total_cost)}.\n")
     return float(total_cost)
 
 
@@ -169,7 +169,8 @@ def calc_3_for_2(offer, boxes, cost_of_box):
     if offer == '1':
         r = boxes % 3
         offer_price = ((math.floor((boxes / 3)) * 2) + r) * float(cost_of_box)
-        print(Fore.GREEN + f"The price with '3 for 2' is €{math.ceil(offer_price)}.\n")
+        print(Fore.GREEN + f"The price with '3 for 2'")
+        print(Fore.GREEN + f"is €{math.ceil(offer_price)}.\n")
         main()
 
 
@@ -182,7 +183,8 @@ def calc_4_for_3(offer, boxes, cost_of_box):
     if offer == '2':
         r = boxes % 4
         offer_price = ((math.floor((boxes / 4)) * 3) + r) * float(cost_of_box)
-        print(Fore.GREEN + f"The price with '4 for 3' is €{math.ceil(offer_price)}.\n")
+        print(Fore.GREEN + f"The price with '4 for 3'") 
+        print(Fore.GREEN + f"is €{math.ceil(offer_price)}.\n")
         main()
         
 
@@ -211,7 +213,8 @@ def cal_perc_off(total_cost, perc):
     then taking this away from the total cost. 
     """
     perc_cost = (total_cost - ((float(total_cost) / 100) * float(perc)))
-    print(Fore.GREEN + f"The total with the discount applied is €{math.ceil(perc_cost)}\n")
+    print(Fore.GREEN + f"The total with the discount applied ")
+    print(Fore.GREEN + f"is €{math.ceil(perc_cost)}\n")
     main()
 
 
