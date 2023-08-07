@@ -130,7 +130,8 @@ def offer_input():
         print("Is there currently an offer on ?\n")
         print("Enter 1 to select '3 for 2'.\n")
         print("Enter 2 to select '4 for 3'.\n")
-        offer = input("Enter 3 for a percentage reduction\n")
+        print("Enter 3 for a percentage reduction\n")
+        offer = input("Enter 4 to restart.\n")
 
         if validate_offer_type(offer):
             break
@@ -141,13 +142,13 @@ def validate_offer_type(values):
     """
     Validates the input from the user to determine the offer type
     """
-    if values == '1' or values == '2' or values == '3':
+    if values == '1' or values == '2' or values == '3' or values == '4':
         return True
     try:
-        if values != ('1' or '2' or '3'):
+        if values != ('1' or '2' or '3' or '4'):
             raise TypeError(f"You Entered {values}. \n")
     except TypeError as e:
-        print(f"{e}. Only 1, 2 or 3 will be accepted. Please Try again.\n")
+        print(f"{e}. Only 1, 2, 3 or 4 will be accepted. Please Try again.\n")
         return False
 
     return True
@@ -180,6 +181,9 @@ def calc_4_for_3(offer, boxes, cost_of_box):
         
 
 def get_percentage(offer):
+    """
+    Gets the input from the user to determine the percentage discount amount
+    """
     if offer == '3':
         while True:
             perc = input("Please enter the percentage amount (numbers only)\n")
@@ -188,7 +192,18 @@ def get_percentage(offer):
         return perc
 
 
+def start_over(offer):
+
+    if offer == '4':
+        main()
+
+
 def cal_perc_off(total_cost, perc):
+    """
+    Calculates the percentage discount by dividing the total by 100 
+    and multiplying by the percentage entered 
+    then taking this away from the total cost. 
+    """
     perc_cost = (total_cost - ((float(total_cost) / 100) * float(perc)))
     print(f"The total with the discount applied is €{math.ceil(perc_cost)}\n")
     main()
@@ -208,8 +223,7 @@ def main():
     calc_4_for_3(offer, boxes, cost_of_box)
     perc = get_percentage(offer)
     cal_perc_off(total_cost, perc)
-    start_again()
-
+    
 
 print("Welcome to Sean's Floor measuring tool.\n")
 print("Please follow the input instructions carefully.\n")

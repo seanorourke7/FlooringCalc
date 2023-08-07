@@ -114,15 +114,14 @@ When asking the user for numerical inputs for length, width , price etc. The pro
 **User Stories.**  
 
 
-This app is designed for use predominantly by sales personel. 
+This app is designed for use predominantly by sales people. 
 In big box Home and DIY stores there are usually specialists in each area of the store. For example in Woodies DIY there is a paint specialist, a DIY specialist, a Horticulturist, a building/flooring specialist etc. These people are highly trained/experienced in their specific area and handle most queries and sales. However when they are not available the other colleagues have to step in and help out and this is ok for the most part but one of the areas people find most difficult is calculating flooring. 
 
-How many boxes the customer will need and how much it will cost based on the current offer?. Are they using feet or meters?, Will I need to convert the measurements ? and so on. This leads to people avoiding these interactions and waiting for the return of the 'Specialist'. This means lost sales and unhappy customers. 
+How many boxes the customer will need and how much it will cost based on the current offer?. Are they using feet or meters?, Will I need to convert the measurements ? and so on. This leads to staff avoiding these interactions and waiting for the return of the 'Specialist'. This means lost sales and unhappy customers. 
 
 With this tool it is now simple to calculate exactly what the customer needs without any need for conversions or calculators.
 
-This takes away the uncertainty and fear of the sales person and instead allows them to concentrate on talking to the customer and selling. 
-
+This takes away the uncertainty and fear of making a costly mistake from the sales person and instead allows them to concentrate on talking to the customer and selling. 
 
 It's also just as useful for customers as they can now 'self serve' and get the correct pricing without any concerns for conversions and calculations. 
 
@@ -167,9 +166,6 @@ Actual output was as expected.
 
 
 
-
-
-
 ## Bugs
 
   
@@ -194,11 +190,33 @@ This project was deployed using Code Institute's mock terminal for Heroku.
 
 #### Steps for Deployment
 
- - Fork or clone this repository
- - Create a new Heroku app
- - Set the buildpacks to Python and NodeJS in that order 
- - Link the Heroku app to the repository
- - Click on **Deploy**
+Deployment
+The site is deployed using GitHub Pages - https://github.com/seanorourke7/project3.
+
+To Deploy the site using GitHub Pages:
+
+Login (or signup) to Github.
+Go to the repository for this project, seanorourke7/FlooringCalc.
+Click the settings button.
+Select pages in the left hand navigation menu.
+From the source dropdown select main branch and press save.
+The site has now been deployed, please note that this process may take a few minutes before the site goes live.
+Local Development
+How to Fork
+To fork the repository:
+
+Log in (or sign up) to Github.
+Go to the repository for this project, seanorourke7/FlooringCalc.
+Click the Fork button in the top right corner.
+How to Clone
+To clone the repository:
+
+Log in (or sign up) to GitHub.
+Go to the repository for this project, seanorourke7/FlooringCalc.
+Click on the code button, select whether you would like to clone with HTTPS, SSH or GitHub CLI and copy the link shown.
+Open the terminal in your code editor and change the current working directory to the location you want to use for the cloned directory.
+Type 'git clone' into the terminal and then paste the link you copied in step 3. Press enter.
+
 
 ## Credits
 Code institute for the deployment terminal
