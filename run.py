@@ -4,6 +4,12 @@ Use for calculating measurements.
 """
 import os
 
+import colorama
+
+from colorama import Back, Fore, Style
+
+colorama.init(autoreset=True)
+
 
 def measurement_type():
     """
@@ -27,7 +33,7 @@ def validate_measurement_type(values):
         return True
     try:
         if values != ('m' or 'f'):
-            raise TypeError(f"You Entered {values}.\n")
+            raise TypeError(Fore.RED + f"You Entered {values}.\n")
     except TypeError as e:
         print(f"{e}Only LowerCase m or f will be accepted. Please Try again")
         return False
@@ -42,7 +48,7 @@ def validate_num(values):
     try:
         float(values)
         if float(values) <= 0:
-            raise ValueError(f"You entered {values} \n")
+            raise ValueError(Fore.RED + f"You entered {values} \n")
     except ValueError as e:
         print(f"{e}Please Enter a Number\n")
         return False
@@ -95,7 +101,7 @@ def calc_boxes_needed(user_input, floor_size, box_size):
 
     elif user_input == 'f':
         boxes = ((float(floor_size) / 10.764) / float(box_size))
-    print(f"You will need {math.ceil(boxes)} boxes.")
+    print(Fore.GREEN + f"You will need {math.ceil(boxes)} boxes.")
 
     return math.ceil(boxes)
 
@@ -117,7 +123,7 @@ def calc_total_cost(cost_of_box, boxes):
     Calculates the Total cost before any offers are applied
     """
     total_cost = (float(cost_of_box) * float(boxes))
-    print(f"The total cost will be €{total_cost}.\n")
+    print(Fore.GREEN + f"The total cost will be €{total_cost}.\n")
     return float(total_cost)
 
 
@@ -146,7 +152,7 @@ def validate_offer_type(values):
         return True
     try:
         if values != ('1' or '2' or '3' or '4'):
-            raise TypeError(f"You Entered {values}. \n")
+            raise TypeError(Fore.RED + f"You Entered {values}. \n")
     except TypeError as e:
         print(f"{e}. Only 1, 2, 3 or 4 will be accepted. Please Try again.\n")
         return False
@@ -163,7 +169,7 @@ def calc_3_for_2(offer, boxes, cost_of_box):
     if offer == '1':
         r = boxes % 3
         offer_price = ((math.floor((boxes / 3)) * 2) + r) * float(cost_of_box)
-        print(f"The price with '3 for 2' is €{math.ceil(offer_price)}.\n")
+        print(Fore.GREEN + f"The price with '3 for 2' is €{math.ceil(offer_price)}.\n")
         main()
 
 
@@ -176,7 +182,7 @@ def calc_4_for_3(offer, boxes, cost_of_box):
     if offer == '2':
         r = boxes % 4
         offer_price = ((math.floor((boxes / 4)) * 3) + r) * float(cost_of_box)
-        print(f"The price with '4 for 3' is €{math.ceil(offer_price)}.\n")
+        print(Fore.GREEN + f"The price with '4 for 3' is €{math.ceil(offer_price)}.\n")
         main()
         
 
@@ -205,7 +211,7 @@ def cal_perc_off(total_cost, perc):
     then taking this away from the total cost. 
     """
     perc_cost = (total_cost - ((float(total_cost) / 100) * float(perc)))
-    print(f"The total with the discount applied is €{math.ceil(perc_cost)}\n")
+    print(Fore.GREEN + f"The total with the discount applied is €{math.ceil(perc_cost)}\n")
     main()
 
 
@@ -223,7 +229,7 @@ def main():
     calc_4_for_3(offer, boxes, cost_of_box)
     perc = get_percentage(offer)
     cal_perc_off(total_cost, perc)
-    
+        
 
 print("Welcome to Sean's Floor measuring tool.\n")
 print("Please follow the input instructions carefully.\n")
