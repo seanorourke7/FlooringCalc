@@ -41,8 +41,9 @@ def validate_num(values):
     """
     try:
         float(values)
+        if float(values) <= 0 :
+            raise ValueError(f"You entered {values} \n")
     except ValueError as e:
-        e = (f"You entered {values} \n")
         print(f"{e}Please Enter a Number\n")
         return False
 
