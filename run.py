@@ -49,6 +49,7 @@ def validate_num(values):
     """
     Determines is the input is a number and raises an error if not.
     """
+
     try:
         float(values)
         if float(values) <= 0:
@@ -131,7 +132,7 @@ def calc_total_cost(cost_of_box, boxes):
     return float(total_cost)
 
 
-def offer_input():
+def offer_input(total_cost, cost_of_box, boxes):
     """
     Takes input to determine if there is an offer on
     """
@@ -143,7 +144,17 @@ def offer_input():
         offer = input("Enter 4 to restart.\n")
 
         if validate_offer_type(offer):
+            if offer == '1':
+                calc_3_for_2(boxes, cost_of_box)
+            elif offer == '2':
+                calc_4_for_3(boxes, cost_of_box)
+            elif offer == '3':
+                perc = get_percentage()
+                cal_perc_off(total_cost, perc)
+            elif offer == '4':
+                main()
             break
+        
     return offer
 
 
@@ -163,44 +174,43 @@ def validate_offer_type(values):
     return True
 
 
-def calc_3_for_2(offer, boxes, cost_of_box):
+def calc_3_for_2(boxes, cost_of_box):
     """
     Calculates the cost with a 3 for 2 offer. By dividing by 3 and multiplying
     by 2. If their is a remainder this is removed form the initial calculation
     and added later to give a true cost of each box and avoid fractions.
     """
-    if offer == '1':
-        r = boxes % 3
-        offer_price = ((math.floor((boxes / 3)) * 2) + r) * float(cost_of_box)
-        print(Fore.GREEN + f"The price with '3 for 2'")
-        print(Fore.GREEN + f"is €{math.ceil(offer_price)}.\n")
-        main()
+    r = boxes % 3
+    offer_price = ((math.floor((boxes / 3)) * 2) + r) * float(cost_of_box)
+    print(Fore.GREEN + f"The price with '3 for 2'")
+    print(Fore.GREEN + f"is €{math.ceil(offer_price)}.\n")
+    start_over()
 
 
-def calc_4_for_3(offer, boxes, cost_of_box):
+def calc_4_for_3(boxes, cost_of_box):
     """
     Calculates the cost with a 4 for 3 offer. By dividing by 4 and multiplying
     by 3. If their is a remainder this is removed form the initial calculation
     and added later to give a true cost of each box and avoid fractions.
     """
-    if offer == '2':
-        r = boxes % 4
-        offer_price = ((math.floor((boxes / 4)) * 3) + r) * float(cost_of_box)
-        print(Fore.GREEN + f"The price with '4 for 3'")
-        print(Fore.GREEN + f"is €{math.ceil(offer_price)}.\n")
-        main()
+    
+    r = boxes % 4
+    offer_price = ((math.floor((boxes / 4)) * 3) + r) * float(cost_of_box)
+    print(Fore.GREEN + f"The price with '4 for 3'")
+    print(Fore.GREEN + f"is €{math.ceil(offer_price)}.\n")
+    start_over()
 
 
-def get_percentage(offer):
+def get_percentage():
     """
     Gets the input from the user to determine the percentage discount amount
     """
-    if offer == '3':
-        while True:
-            perc = input("Please enter the percentage amount (numbers only)\n")
-            if validate_num(perc):
-                break
-        return perc
+    
+    while True:
+        perc = input("Please enter the percentage amount (numbers only)\n")
+        if validate_num(perc):
+            break
+    return perc
 
 
 def cal_perc_off(total_cost, perc):
@@ -212,13 +222,11 @@ def cal_perc_off(total_cost, perc):
     perc_cost = (total_cost - ((float(total_cost) / 100) * float(perc)))
     print(Fore.GREEN + f"The total with the discount applied ")
     print(Fore.GREEN + f"is €{math.ceil(perc_cost)}\n")
+    start_over()
+
+
+def start_over():
     main()
-
-
-def start_over(offer):
-
-    if offer == '4':
-        main()
 
 
 def main():
@@ -234,12 +242,8 @@ def main():
     boxes = calc_boxes_needed(user_input, floor_size, box_size)
     cost_of_box = cost_per_box()
     total_cost = calc_total_cost(cost_of_box, boxes)
-    offer = offer_input()
-    perc = get_percentage(offer)
-    cal_perc_off(total_cost, perc)
-    calc_3_for_2(offer, boxes, cost_of_box)
-    calc_4_for_3(offer, boxes, cost_of_box)
-    
+    offer_input(total_cost, cost_of_box, boxes)
+     
 
 print("Welcome to Sean's Floor measuring tool.\n")
 print("Please follow the input instructions carefully.\n")

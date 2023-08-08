@@ -28,7 +28,7 @@ https://flooringcalculator-4a8f9f1ad4d5.herokuapp.com/
 
   
 
-![screenshot across different device sizes](images/screenshotFlooringCalc.png)
+![screenshot across different device sizes](images/screenshot-flooring-calc.png)
 
   
 
@@ -92,7 +92,7 @@ If the user selects '3 for 2' or '4 for 3' the program will calculate the discou
 
   
 
-![Flow chart plotting the options and steps through the program](images/FlowChartFC.png)
+![Flow chart plotting the options and steps through the program](images/flow-chart.png)
 
   
   
@@ -161,11 +161,11 @@ When asking the user for numerical inputs for length, width , price etc. The pro
 
   
 
-![screenshot of error handling](images/ErrorMT.png)
+![screenshot of error handling](images/error-mt.png)
 
   
 
-![screenshot of error handling](images/ErrorNum.png)
+![screenshot of error handling](images/error-num.png)
 
   
   
@@ -268,12 +268,12 @@ Actual output was as expected.
 
 **validate_offer_type(values):**
 
-This function determines the type of offer that is currently active and only allows the pre determined inputs to pass. 1,2 or 3. 
+This function determines the type of offer that is currently active and only allows the pre determined inputs to pass. 1,2,3 or 4. 
 Any other input will advise the user of the error and run the function again.  
 
 #### Inputs tried
 1. blank space
-2. numbers other than 1, 2 or 3
+2. numbers other than 1, 2, 3 or 4 
 3. strings
 4. symbols
 5. 0 
@@ -338,7 +338,7 @@ This project was deployed using Code Institute's mock terminal for Heroku.
 
 #### Deployment
 
-The site is deployed using GitHub Pages - https://github.com/seanorourke7/FlooringCalc.
+The site is deployed using GitHub Pages - https://github.com/seanorourke7/FlooringCalc
 
   
 
