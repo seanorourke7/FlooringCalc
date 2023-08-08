@@ -10,6 +10,10 @@ from colorama import Back, Fore, Style
 
 colorama.init(autoreset=True)
 
+"""
+Use for changing colour of text
+"""
+
 
 def measurement_type():
     """
@@ -132,7 +136,6 @@ def offer_input():
     Takes input to determine if there is an offer on
     """
     while True:
-        print('')
         print("Is there currently an offer on ?\n")
         print("Enter 1 to select '3 for 2'.\n")
         print("Enter 2 to select '4 for 3'.\n")
@@ -200,12 +203,6 @@ def get_percentage(offer):
         return perc
 
 
-def start_over(offer):
-
-    if offer == '4':
-        main()
-
-
 def cal_perc_off(total_cost, perc):
     """
     Calculates the percentage discount by dividing the total by 100
@@ -218,10 +215,17 @@ def cal_perc_off(total_cost, perc):
     main()
 
 
+def start_over(offer):
+
+    if offer == '4':
+        main()
+
+
 def main():
     """
     Runs all of the functions.
     """
+ 
     user_input = measurement_type()
     floor_length = calculate_length()
     floor_width = calculate_width()
@@ -231,11 +235,11 @@ def main():
     cost_of_box = cost_per_box()
     total_cost = calc_total_cost(cost_of_box, boxes)
     offer = offer_input()
-    calc_3_for_2(offer, boxes, cost_of_box)
-    calc_4_for_3(offer, boxes, cost_of_box)
     perc = get_percentage(offer)
     cal_perc_off(total_cost, perc)
-
+    calc_3_for_2(offer, boxes, cost_of_box)
+    calc_4_for_3(offer, boxes, cost_of_box)
+    
 
 print("Welcome to Sean's Floor measuring tool.\n")
 print("Please follow the input instructions carefully.\n")
@@ -243,3 +247,4 @@ print("Please follow the input instructions carefully.\n")
 
 if __name__ == "__main__":
     main()
+
