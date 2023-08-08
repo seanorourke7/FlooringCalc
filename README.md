@@ -304,7 +304,7 @@ I had written the function using replace and isnumeric methods. This worked unti
 
 I re-wrote the code to use float(values) and now it passes only genuine floats or int
 
-  
+However this didn't account for 0 (zero) as an input which then threw a zero division error so I had to add in a requirement that the input be of a value greater than 0 (zero).   
 
 There were minor bugs in the code when ran through the python linter. Some empty space and lines too long.
 
