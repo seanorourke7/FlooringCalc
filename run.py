@@ -219,6 +219,9 @@ def cal_perc_off(total_cost, perc):
 
 
 def main():
+    """
+    Runs all of the functions.
+    """
     user_input = measurement_type()
     floor_length = calculate_length()
     floor_width = calculate_width()
