@@ -154,7 +154,7 @@ def offer_input(total_cost, cost_of_box, boxes):
             elif offer == '4':
                 main()
             break
-        
+
     return offer
 
 
@@ -193,7 +193,7 @@ def calc_4_for_3(boxes, cost_of_box):
     by 3. If their is a remainder this is removed form the initial calculation
     and added later to give a true cost of each box and avoid fractions.
     """
-    
+
     r = boxes % 4
     offer_price = ((math.floor((boxes / 4)) * 3) + r) * float(cost_of_box)
     print(Fore.GREEN + f"The price with '4 for 3'")
@@ -205,7 +205,7 @@ def get_percentage():
     """
     Gets the input from the user to determine the percentage discount amount
     """
-    
+
     while True:
         perc = input("Please enter the percentage amount (numbers only)\n")
         if validate_num(perc):
@@ -226,14 +226,39 @@ def cal_perc_off(total_cost, perc):
 
 
 def start_over():
-    main()
+    """
+    Asks the user if they want to start again
+    and runs the program if 'y' is input.
+    """
+    while True:
+        print("Do you want to start again ? y/n \n")
+        user_input = input()
+        if user_input == 'y':
+            main()
+        if validate_start_over(user_input):
+            break
+    return True
+
+
+def validate_start_over(values):
+    """
+    Validates the input for the start over function.
+    """
+    if values == 'y' or values == 'n':
+        return True
+    try:
+        if values != ('y' or 'n'):
+            raise TypeError(Fore.RED + f"You Entered {values}.\n")
+    except TypeError as e:
+        print(f"{e}Only LowerCase y or n will be accepted. Please Try again")
+        return False
 
 
 def main():
     """
     Runs all of the functions.
     """
- 
+
     user_input = measurement_type()
     floor_length = calculate_length()
     floor_width = calculate_width()
@@ -243,7 +268,7 @@ def main():
     cost_of_box = cost_per_box()
     total_cost = calc_total_cost(cost_of_box, boxes)
     offer_input(total_cost, cost_of_box, boxes)
-     
+
 
 print("Welcome to Sean's Floor measuring tool.\n")
 print("Please follow the input instructions carefully.\n")
@@ -251,4 +276,3 @@ print("Please follow the input instructions carefully.\n")
 
 if __name__ == "__main__":
     main()
-
