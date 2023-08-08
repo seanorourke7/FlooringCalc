@@ -1,6 +1,6 @@
 import math
 """
-Use for calculating measurements. 
+Use for calculating measurements.
 """
 import os
 
@@ -183,10 +183,10 @@ def calc_4_for_3(offer, boxes, cost_of_box):
     if offer == '2':
         r = boxes % 4
         offer_price = ((math.floor((boxes / 4)) * 3) + r) * float(cost_of_box)
-        print(Fore.GREEN + f"The price with '4 for 3'") 
+        print(Fore.GREEN + f"The price with '4 for 3'")
         print(Fore.GREEN + f"is €{math.ceil(offer_price)}.\n")
         main()
-        
+
 
 def get_percentage(offer):
     """
@@ -208,9 +208,9 @@ def start_over(offer):
 
 def cal_perc_off(total_cost, perc):
     """
-    Calculates the percentage discount by dividing the total by 100 
-    and multiplying by the percentage entered 
-    then taking this away from the total cost. 
+    Calculates the percentage discount by dividing the total by 100
+    and multiplying by the percentage entered
+    then taking this away from the total cost.
     """
     perc_cost = (total_cost - ((float(total_cost) / 100) * float(perc)))
     print(Fore.GREEN + f"The total with the discount applied ")
@@ -232,7 +232,7 @@ def main():
     calc_4_for_3(offer, boxes, cost_of_box)
     perc = get_percentage(offer)
     cal_perc_off(total_cost, perc)
-        
+
 
 print("Welcome to Sean's Floor measuring tool.\n")
 print("Please follow the input instructions carefully.\n")
