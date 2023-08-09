@@ -231,7 +231,7 @@ def cal_perc_off(total_cost, perc):
     then taking this away from the total cost.
     """
     perc_cost = (total_cost - ((float(total_cost) / 100) * float(perc)))
-    print(Fore.GREEN + f"The total with the discount applied ")
+    print(Fore.GREEN + f"The total minus {perc}% discount ")
     print(Fore.GREEN + f"is €{math.ceil(perc_cost)}\n")
     start_over()
 
