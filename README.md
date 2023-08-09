@@ -213,71 +213,68 @@ Tested in the local terminal and the code institute heroku terminal.
 
   
 
-### validate_measurement_type(values):
+## validate_measurement_type(values):
 
   
 This Function is designed to determine if the user is using feet or meters and only allows lower case m or f to be passed. It alerts the user if the wrong input is entered and runs the function again. 
 
-### Inputs tried 
+| **Inputs** | **Expected Outcome** | **Actual Outcome** |
+| :-------- | :------- | :------------------------- |
+| Blank Space | Only LowerCase m or f will be accepted. Please Try again.| Only LowerCase m or f will be accepted. Please Try again. |
+| Numbers with and without Decimal | Only LowerCase m or f will be accepted. Please Try again.| Only LowerCase m or f will be accepted. Please Try again. |
+| Strings | Only LowerCase m or f will be accepted. Please Try again.| Only LowerCase m or f will be accepted. Please Try again. |
+| Symbols | Only LowerCase m or f will be accepted. Please Try again.| Only LowerCase m or f will be accepted. Please Try again. |
+| Capital M/F | Only LowerCase m or f will be accepted. Please Try again.| Only LowerCase m or f will be accepted. Please Try again. |
+| Random Mix of above | Only LowerCase m or f will be accepted. Please Try again.| Only LowerCase m or f will be accepted. Please Try again. |
 
-    1. blank space
-    2. numbers with and without decimals 
-    3. strings
-    4. symbols
-    5. capitalization of the inputs M and F
-    6. random mix of the above 
-
-### Expected output 
-Error advising of incorrect input.
-
-### Actual Output
-
-Actual output was as expected.
-
-### validate_num(values):
+## validate_num(values):
 
 This function is used several times in the program. It determines if the input is a number either with or without a decimal and wont allow anything else to pass. 
 It also wont accept 0 (zero) or less to avoid any zero division errors. 
 If the user inputs the wrong values they are advised of what they have entered and the function is run again. 
 
-#### Inputs tried
 
-    1. blank space
-    2. numbers with more than 1 decimal point 
-    3. strings
-    4. symbols
-    5. 0 
-    6. Negative numbers
-
-#### Expected output 
-Error advising of incorrect input.
-
-#### Actual Output
-
-Actual output was as expected.
+| **Inputs** | **Expected Outcome** | **Actual Outcome** |
+| :-------- | :------- | :------------------------- |
+| Blank Space | Please Enter Numbers only.| Please Enter Numbers only. |
+| Numbers with multiple Decimals | Please Enter Numbers only.| Please Enter Numbers only. |
+| Strings | Please Enter Numbers only.| Please Enter Numbers only. |
+| Symbols | Please Enter Numbers only.| Please Enter Numbers only. |
+| 0 (zero) | Please Enter Numbers only.| Please Enter Numbers only. |
+| Negative Numbers | Please Enter Numbers only.| Please Enter Numbers only. |
 
 
-### validate_offer_type(values):
+
+## validate_offer_type(values):
 
 This function determines the type of offer that is currently active and only allows the pre determined inputs to pass. 1,2,3 or 4. 
 Any other input will advise the user of the error and run the function again.  
 
-### Inputs tried
-    1. blank space
-    2. numbers other than 1, 2, 3 or 4 
-    3. strings
-    4. symbols
-    5. 0 
-    6. Negative numbers
 
-### Expected output 
-Error advising of incorrect input.
 
-### Actual Output
+| **Inputs** | **Expected Outcome** | **Actual Outcome** |
+| :-------- | :------- | :------------------------- |
+| Blank Space | You Entered (input). Only 1, 2, 3 or 4 will be accepted. Please Try again..| You Entered (input). Only 1, 2, 3 or 4 will be accepted. Please Try again.. |
+| Numbers other than 1,2,3,4 | You Entered (input). Only 1, 2, 3 or 4 will be accepted. Please Try again..| You Entered (input). Only 1, 2, 3 or 4 will be accepted. Please Try again.. |
+| Strings | You Entered (input). Only 1, 2, 3 or 4 will be accepted. Please Try again..| You Entered (input). Only 1, 2, 3 or 4 will be accepted. Please Try again.. |
+| Symbols | You Entered (input). Only 1, 2, 3 or 4 will be accepted. Please Try again..| You Entered (input). Only 1, 2, 3 or 4 will be accepted. Please Try again.. |
+| 0 (zero) | You Entered (input). Only 1, 2, 3 or 4 will be accepted. Please Try again..| You Entered (input). Only 1, 2, 3 or 4 will be accepted. Please Try again..|
+| Negative Numbers | You Entered (input). Only 1, 2, 3 or 4 will be accepted. Please Try again..| You Entered (input). Only 1, 2, 3 or 4 will be accepted. Please Try again.. |
 
-Actual output was as expected.
 
+## validate_start_over(values):
   
+
+| **Inputs** | **Expected Outcome** | **Actual Outcome** |
+| :-------- | :------- | :------------------------- |
+| Blank Space | You Entered (input). Only LowerCase y or n will be accepted. Please Try again. |You Entered (input). Only LowerCase y or n will be accepted. Please Try again. |
+| Numbers with and without Decimal | You Entered (input). Only LowerCase y or n will be accepted. Please Try again. |You Entered (input). Only LowerCase y or n will be accepted. Please Try again.|
+| Strings | You Entered (input). Only LowerCase y or n will be accepted. Please Try again.| You Entered (input). Only LowerCase y or n will be accepted. Please Try again. |
+| Symbols | You Entered (input). Only LowerCase y or n will be accepted. Please Try again.| You Entered (input). Only LowerCase y or n will be accepted. Please Try again. |
+| Capital Y/N | You Entered (input). Only LowerCase y or n will be accepted. Please Try again.| You Entered (input). Only LowerCase y or n will be accepted. Please Try again. |
+| Random Mix of above | You Entered (input). Only LowerCase y or n will be accepted. Please Try again.| You Entered (input). Only LowerCase y or n will be accepted. Please Try again.|
+
+
   
   
 
