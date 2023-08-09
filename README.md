@@ -205,7 +205,6 @@ Passed all the code through pep8 python linter.
 
 Tested in the local terminal and the code institute heroku terminal.
 
-![screenshot of pep8 python linter with no errors](images/pep8floor.png)
   
 
 ### Input testing.
@@ -309,7 +308,7 @@ PEP8
 
 No errors were returned from https://pep8ci.herokuapp.com/
 
-  
+![screenshot of pep8 python linter with no errors](images/pep8floor.png)
 
 ## Deployment
 
