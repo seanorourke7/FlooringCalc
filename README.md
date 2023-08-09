@@ -225,7 +225,7 @@ This Function is designed to determine if the user is using feet or meters and o
 
 This function is used several times in the program. It determines if the input is a number either with or without a decimal and wont allow anything else to pass. 
 It also wont accept 0 (zero) or less to avoid any zero division errors. 
-If the user inputs the wrong values they are advised of what they have entered and the function is run again. 
+If the user inputs the wrong values they are asked to only enter numbers and the function is run again. 
 
 
 | **Inputs** | **Expected Outcome** | **Actual Outcome** |
