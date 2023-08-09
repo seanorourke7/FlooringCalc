@@ -153,12 +153,6 @@ When the user is asked for m or f to choose measurement type the program will on
 When asking the user for numerical inputs for length, width , price etc. The program will only accept numerical values either as whole numbers or numbers with decimel points. Anything else will display an error advising what was entered and ask to try again.
 
 
-![screenshot of error handling](images/error-mt.png)
-
-  
-
-![screenshot of error handling](images/error-num.png)
-
 
 ### User Stories
 
@@ -309,6 +303,9 @@ There are no remaining bugs.
 PEP8
 
 No errors were returned from https://pep8ci.herokuapp.com/
+
+![screenshot of pep8 pass](images/pep8floor.png)
+
 
 ## Future updates 
 
