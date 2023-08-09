@@ -246,8 +246,11 @@ def start_over():
         user_input = input()
         if user_input == 'y':
             main()
+        if user_input == 'n':
+            print("Thank you for using Sean's Floor Calculator.")
         if validate_start_over(user_input):
             break
+        
     return True
 
 
