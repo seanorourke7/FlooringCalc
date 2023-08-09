@@ -92,7 +92,7 @@ If the user selects '3 for 2' or '4 for 3' the program will calculate the discou
 
   
 
-![Flow chart plotting the options and steps through the program](images/flow-chart.png)
+![Flow chart plotting the options and steps through the program](images/fooring-chart.png)
 
   
   
