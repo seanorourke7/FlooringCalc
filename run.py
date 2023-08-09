@@ -250,7 +250,7 @@ def start_over():
             print("Thank you for using Sean's Floor Calculator.")
         if validate_start_over(user_input):
             break
-        
+
     return True
 
 
