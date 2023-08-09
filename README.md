@@ -109,7 +109,7 @@ If the user selects '3 for 2' or '4 for 3' the program will calculate the discou
 
   
 
-The metric system may be the offical measurment used in most of eurpoe however a lot of people still use imperial so this is taken into account.
+The metric system may be the offical measurment used in most of europe however a lot of people still use imperial so this is taken into account.
 
   
 
@@ -150,14 +150,12 @@ When the user is asked for m or f to choose measurement type the program will on
 
 
 
-When asking the user for numerical inputs for length, width , price etc. The program will only accept numerical values either as whole numbers or numbers with decimel points. Anything else will display an error advising what was entered and ask to try again.
+When asking the user for numerical inputs for length, width , price etc. The program will only accept numerical values either as whole numbers or numbers with decimel points. Anything else will display an error and ask to try again.
 
 
-![screenshot of error handling](images/error-mt.png)
+![screenshot of error handling](images/error-flooring.png)
 
-  
 
-![screenshot of error handling](images/error-num.png)
 
 
 ### User Stories
@@ -177,13 +175,13 @@ With this tool it is now simple to calculate exactly what the customer needs wit
 
   
 
-This takes away the uncertainty and fear of making a costly mistake from the sales person and instead allows them to concentrate on talking to the customer and selling.
+This takes away the uncertainty and fear of making a costly mistake from the sales person and instead allows them to concentrate on talking to the customer and up-selling.
 
 It's also just as useful for customers as they can now 'self serve' and get the correct pricing without any concerns for conversions and calculations.
 
 I have been using it in my work (I work in Woodies DIY) for the past couple of weeks and it's already having an impact. Several of my colleagues are now using it on their phones and we have it bookmarked on the store PC. 
 
-One of my team leaders told me they activley avoided the flooring secction before due to the difficulty they had in working out the calculations. 
+One of my team leaders told me they activley avoided the flooring section before due to the difficulty they had in working out the calculations. 
 
 With this program they have no such issues. 
 
@@ -207,6 +205,7 @@ Passed all the code through pep8 python linter.
 
 Tested in the local terminal and the code institute heroku terminal.
 
+![screenshot of pep8 python linter with no errors](images/pep8floor.png)
   
 
 ### Input testing.
