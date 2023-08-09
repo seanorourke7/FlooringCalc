@@ -14,6 +14,17 @@ colorama.init(autoreset=True)
 Use for changing colour of text
 """
 
+logo = """
+  ______   _                          _                      _____           _        
+ |  ____| | |                        (_)                    / ____|         | |       
+ | |__    | |   ___     ___    _ __   _   _ __     __ _    | |        __ _  | |   ___ 
+ |  __|   | |  / _ \   / _ \  | '__| | | | '_ \   / _` |   | |       / _` | | |  / __|
+ | |      | | | (_) | | (_) | | |    | | | | | | | (_| |   | |____  | (_| | | | | (__ 
+ |_|      |_|  \___/   \___/  |_|    |_| |_| |_|  \__, |    \_____|  \__,_| |_|  \___|
+                                                   __/ |                              
+                                                  |___/                               
+"""
+
 
 def measurement_type():
     """
@@ -270,6 +281,7 @@ def main():
     offer_input(total_cost, cost_of_box, boxes)
 
 
+print(logo)
 print("Welcome to Sean's Floor measuring tool.\n")
 print("Please follow the input instructions carefully.\n")
 
