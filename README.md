@@ -109,7 +109,7 @@ If the user selects '3 for 2' or '4 for 3' the program will calculate the discou
 
   
 
-The metric system may be the offical measurment used in most of europe however a lot of people still use imperial so this is taken into account.
+The metric system may be the offical measurment used in most of eurpoe however a lot of people still use imperial so this is taken into account.
 
   
 
@@ -150,12 +150,14 @@ When the user is asked for m or f to choose measurement type the program will on
 
 
 
-When asking the user for numerical inputs for length, width , price etc. The program will only accept numerical values either as whole numbers or numbers with decimel points. Anything else will display an error and ask to try again.
+When asking the user for numerical inputs for length, width , price etc. The program will only accept numerical values either as whole numbers or numbers with decimel points. Anything else will display an error advising what was entered and ask to try again.
 
 
-![screenshot of error handling](images/error-flooring.png)
+![screenshot of error handling](images/error-mt.png)
 
+  
 
+![screenshot of error handling](images/error-num.png)
 
 
 ### User Stories
@@ -175,13 +177,13 @@ With this tool it is now simple to calculate exactly what the customer needs wit
 
   
 
-This takes away the uncertainty and fear of making a costly mistake from the sales person and instead allows them to concentrate on talking to the customer and up-selling.
+This takes away the uncertainty and fear of making a costly mistake from the sales person and instead allows them to concentrate on talking to the customer and selling.
 
 It's also just as useful for customers as they can now 'self serve' and get the correct pricing without any concerns for conversions and calculations.
 
 I have been using it in my work (I work in Woodies DIY) for the past couple of weeks and it's already having an impact. Several of my colleagues are now using it on their phones and we have it bookmarked on the store PC. 
 
-One of my team leaders told me they activley avoided the flooring section before due to the difficulty they had in working out the calculations. 
+One of my team leaders told me they activley avoided the flooring secction before due to the difficulty they had in working out the calculations. 
 
 With this program they have no such issues. 
 
@@ -308,7 +310,14 @@ PEP8
 
 No errors were returned from https://pep8ci.herokuapp.com/
 
-![screenshot of pep8 python linter with no errors](images/pep8floor.png)
+## Future updates 
+
+I would like to add a feature to save each value into a list. So you could calculate several rooms and then return a total overall cost. 
+
+Also I would like to add the options for measuring underlay and trim as add-on sales.
+
+I would also like to look into loading a product list into a sheet and allowing the user to enter a product code that would then  retrieve price and coverage from the sheet and auto fill this information.
+
 
 ## Deployment
 
