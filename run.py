@@ -247,7 +247,7 @@ def start_over():
         if user_input == 'y':
             main()
         if user_input == 'n':
-            print("Thank you for using Sean's Floor Calculator.")
+            print("Thank you for using Sean's Flooring Calculator.")
         if validate_start_over(user_input):
             break
 
@@ -285,7 +285,7 @@ def main():
 
 
 print(logo)
-print("Welcome to Sean's Floor measuring tool.\n")
+print("Welcome to Sean's Flooring Calculator.\n")
 print("Please follow the input instructions carefully.\n")
 
 
